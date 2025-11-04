@@ -8,7 +8,12 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 // CORS middleware
-app.use(cors());
+app.use(cors({
+  origin: "https://your-frontend-vercel-url.vercel.app",
+  // methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
 
 // Body parser middleware
 app.use(express.json());
