@@ -12,7 +12,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchCandidates = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/candidates/get-candidates");
+        const res = await fetch("https://candidate-categorization-platform-2.onrender.com/api/candidates/get-candidates");
         const data = await res.json();
         setCandidates(data);
 
