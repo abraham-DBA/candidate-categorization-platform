@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Dashboard from './pages/Dashboard';
-import Overview from './pages/Candidates';
-import Chat from './pages/AddCandidate';
+import Candidates from './pages/Candidates';
+import AddCandidate from './pages/AddCandidate';
 
 const App = () => {
   return (
@@ -10,8 +10,8 @@ const App = () => {
       <Layout>
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/candidates" element={<Overview />} />
-          <Route path="/register-candidate" element={<Chat />} />
+          <Route path="/candidates" element={<Candidates />} />
+          <Route path="/register-candidate" element={<AddCandidate />} />
         </Routes>
       </Layout>
     </Router>

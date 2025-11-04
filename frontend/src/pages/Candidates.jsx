@@ -3,7 +3,7 @@ import Table from "../components/CandidatesTable";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const Overview = () => {
+const Candidates = () => {
   const [candidates, setCandidates] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
@@ -88,4 +88,4 @@ const Overview = () => {
   );
 };
 
-export default Overview;
+export default Candidates;

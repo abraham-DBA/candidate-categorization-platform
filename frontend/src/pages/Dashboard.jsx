@@ -1,8 +1,49 @@
+import { useEffect, useState } from "react";
 import Table from "../components/CandidatesTable";
 
 const Dashboard = () => {
-  const totalCandidates = 120;
-  const tierCounts = [15, 25, 30, 20, 30];
+  const [candidates, setCandidates] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [tierCounts, setTierCounts] = useState([0, 0, 0, 0, 0]);
+
+  const columns = ["Name", "Email", "Tier", "Date Added"];
+
+  // Fetch candidates from backend
+  useEffect(() => {
+    const fetchCandidates = async () => {
+      try {
+        const res = await fetch("http://localhost:5000/api/candidates/get-candidates");
+        const data = await res.json();
+        setCandidates(data);
+
+        // Count candidates by tier
+        const counts = [0, 0, 0, 0, 0];
+        data.forEach((c) => {
+          if (c.tier >= 0 && c.tier <= 4) counts[c.tier]++;
+        });
+        setTierCounts(counts);
+      } catch (error) {
+        console.error("Error fetching candidates:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCandidates();
+  }, []);
+
+  // Sort and slice to get last 5 candidates
+  const recentCandidates = [...candidates]
+    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    .slice(0, 5)
+    .map((c) => ({
+      name: c.name,
+      email: c.email,
+      tier: `Tier ${c.tier}`,
+      date: new Date(c.createdAt).toLocaleDateString(),
+    }));
+
+  const totalCandidates = candidates.length;
 
   const tiers = [
     { name: "Tier 0 - Beginner", count: tierCounts[0], color: "bg-blue-100", textColor: "text-blue-700" },
@@ -11,17 +52,6 @@ const Dashboard = () => {
     { name: "Tier 3 - Multi-Framework", count: tierCounts[3], color: "bg-orange-100", textColor: "text-orange-700" },
     { name: "Tier 4 - Advanced Full-Stack", count: tierCounts[4], color: "bg-red-100", textColor: "text-red-700" },
   ];
-
-  // Dummy data for recently added candidates
-  const recentCandidates = [
-    { name: "Alice Johnson", email: "alice@example.com", tier: "Tier 2", date: "2025-11-01" },
-    { name: "Bob Smith", email: "bob@example.com", tier: "Tier 1", date: "2025-11-02" },
-    { name: "Charlie Brown", email: "charlie@example.com", tier: "Tier 0", date: "2025-11-03" },
-    { name: "Diana Prince", email: "diana@example.com", tier: "Tier 3", date: "2025-11-03" },
-    { name: "Evan Lee", email: "evan@example.com", tier: "Tier 4", date: "2025-11-04" },
-  ];
-
-  const columns = ["Name", "Email", "Tier", "Date Added"];
 
   return (
     <div className="p-6 space-y-8">
@@ -54,7 +84,11 @@ const Dashboard = () => {
       {/* Recently Added Candidates Table */}
       <div>
         <h2 className="text-xl font-bold text-gray-800 mb-4">Recently Added Candidates</h2>
-        <Table data={recentCandidates} columns={columns} />
+        {loading ? (
+          <p className="text-gray-600">Loading recent candidates...</p>
+        ) : (
+          <Table data={recentCandidates} columns={columns} />
+        )}
       </div>
     </div>
   );
