@@ -106,21 +106,25 @@ candidate-management/
 
 ## 🔗 API Endpoints
 Method	Endpoint	Description
-GET	/api/candidates/get-candidates	Retrieve all registered candidates
-POST	/api/candidates/register-candidate	Register a new candidate and calculate tier
-🧩 Planned Features
+| Method | Endpoint | Description |
+|:------|:--------|:------------|
+| GET   | `/api/candidates/get-candidates` | Retrieve all registered candidates |
+| POST  | `/api/candidates/register-candidate` | Register a new candidate and calculate tier |
 
-🔐 Authentication & Authorization (JWT / Clerk)
+## 🧩 Planned Features
 
-✏️ Edit and Delete functionality for candidates
+🔐 **Authentication & Authorization** (JWT / Clerk)
 
-🧭 Role-based access (Admin vs. Regular User)
+✏️ **Edit and Delete functionality for candidates**
 
-🔔 Real-time updates and notifications for new registrations
+🧭 **Role-based access** (Admin vs. Regular User)
+
+🔔 **Real-time updates and notifications for new registrations**
 
 ## 📜 License
 
 This project is licensed under the MIT License.
 Feel free to use, modify, and distribute it for educational or commercial purposes.
+
 
 
