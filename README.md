@@ -1,55 +1,51 @@
-#🧑‍💼 Candidate Management System
+## 🧑‍💼 Candidate Management System
 
-A full-stack Candidate Management System built with React, Node.js, Express, and MongoDB.
+
+A full-stack **Candidate Management System** built with **React**, **Node.js**, **Express**, and **MongoDB**.
 This application enables administrators to register candidates, automatically assign skill tiers based on selected skills, and manage candidate data efficiently.
 
-📚 Table of Contents
+## 📚 Table of Contents
 
-Features
+## 📚 Table of Contents
 
-Tech Stack
+- [🚀 Features](#-features)
+- [🧠 Tech Stack](#-tech-stack)
+- [⚙️ Installation](#-installation)
+- [💻 Usage](#-usage)
+- [🏅 Tier Definitions](#-tier-definitions)
+- [📁 Folder Structure](#-folder-structure)
+- [🔗 API Endpoints](#-api-endpoints)
+- [🧩 Planned Features](#-planned-features)
+- [📜 License](#-license)
 
-Installation
 
-Usage
+## 🚀 Features
 
-Tier Definitions
+- **Add Candidate** – Register candidates with personal and skill information.
 
-Folder Structure
+- **Automatic Tier Assignment** – Assigns a skill tier (0–4) automatically based on predefined criteria.
 
-API Endpoints
+- **Search & Filter** – Filter candidates by name, email, or skill tier.
 
-Planned Features
+- **Responsive UI** – Clean, modern interface powered by Tailwind CSS.
 
-License
+- **Skill Assessment** – Evaluate multiple skill categories such as frontend, backend, and deployment.
 
-🚀 Features
+- **⚠️ Authentication** is not yet implemented; all users currently have open access.
 
-Add Candidate – Register candidates with personal and skill information.
+## 🧠 Tech Stack
 
-Automatic Tier Assignment – Assigns a skill tier (0–4) automatically based on predefined criteria.
+**Frontend**: React, React Router DOM, Tailwind CSS
+**Backend**: Node.js, Express
+**Database**: MongoDB (Mongoose ODM)
+**Others**: Fetch API / Axios, JavaScript
 
-Search & Filter – Filter candidates by name, email, or skill tier.
-
-Responsive UI – Clean, modern interface powered by Tailwind CSS.
-
-Skill Assessment – Evaluate multiple skill categories such as frontend, backend, and deployment.
-
-⚠️ Authentication is not yet implemented; all users currently have open access.
-
-🧠 Tech Stack
-
-Frontend: React, React Router DOM, Tailwind CSS
-Backend: Node.js, Express
-Database: MongoDB (Mongoose ODM)
-Others: Fetch API / Axios, JavaScript
-
-⚙️ Installation
-1. Clone the Repository
+## ⚙️ Installation
+## 1. Clone the Repository
 git clone https://github.com/yourusername/candidate-management.git
 cd candidate-management
 
-2. Backend Setup
+## 2. Backend Setup
 cd backend
 npm install
 
@@ -64,7 +60,7 @@ Start the backend server:
 
 npm run dev
 
-3. Frontend Setup
+## 3. Frontend Setup
 cd ../frontend
 npm install
 npm run dev
@@ -74,7 +70,7 @@ Then open your browser at:
 👉 http://localhost:5173
  (or the port provided by Vite)
 
-💻 Usage
+## 💻 Usage
 
 Navigate to /candidates to view all registered candidates.
 
@@ -82,14 +78,17 @@ Click Add Candidate to register a new candidate and select their skills.
 
 Candidate tiers are automatically calculated and displayed in the overview table.
 
-🏅 Tier Definitions
-Tier	Title	Criteria
-0	Beginner	Knows HTML, CSS, JavaScript. Basic React/Next.js knowledge. Cannot build CRUD apps.
-1	CRUD Developer	Can build CRUD apps with Next.js and databases. Cannot implement authentication.
-2	Full-Stack Next.js	Can build authenticated CRUD apps with Next.js and deploy them. Limited backend skills.
-3	Multi-Framework Developer	Can build authenticated CRUD apps and APIs using Express/Hono or Laravel. Cannot use Golang.
-4	Advanced Full-Stack	Proficient in Next.js, Express/Hono, Laravel, and Golang. Can build full frontend + backend APIs.
-📁 Folder Structure
+## 🏅 Tier Definitions
+| Tier | Title | Criteria |
+|:---:|:---|:---|
+| 0 | Beginner | Knows HTML, CSS, JavaScript. Basic React/Next.js knowledge. Cannot build CRUD apps. |
+| 1 | CRUD Developer | Can build CRUD apps with Next.js and databases. Cannot implement authentication. |
+| 2 | Full-Stack Next.js | Can build authenticated CRUD apps with Next.js and deploy them. Limited backend skills. |
+| 3 | Multi-Framework Developer | Can build authenticated CRUD apps and APIs using Express/Hono or Laravel. Cannot use Golang. |
+| 4 | Advanced Full-Stack | Proficient in Next.js, Express/Hono, Laravel, and Golang. Can build full frontend + backend APIs. |
+
+## 📁 Folder Structure
+```text
 candidate-management/
 ├── frontend/
 │   ├── src/
@@ -102,8 +101,10 @@ candidate-management/
 │   ├── controllers/          # Business logic & tier calculation
 │   └── server.js             # Express server entry point
 └── README.md
+```
 
-🔗 API Endpoints
+
+## 🔗 API Endpoints
 Method	Endpoint	Description
 GET	/api/candidates/get-candidates	Retrieve all registered candidates
 POST	/api/candidates/register-candidate	Register a new candidate and calculate tier
@@ -116,4 +117,10 @@ POST	/api/candidates/register-candidate	Register a new candidate and calculate t
 🧭 Role-based access (Admin vs. Regular User)
 
 🔔 Real-time updates and notifications for new registrations
+
+## 📜 License
+
+This project is licensed under the MIT License.
+Feel free to use, modify, and distribute it for educational or commercial purposes.
+
 
