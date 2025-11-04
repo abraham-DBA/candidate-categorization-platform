@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 8000;
 
 // CORS middleware
 app.use(cors({
-  origin: "https://your-frontend-vercel-url.vercel.app",
+  origin: "https://candidate-categorization-platform.vercel.app/",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
