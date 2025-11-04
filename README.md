@@ -1,4 +1,4 @@
-🧑‍💼 Candidate Management System
+#🧑‍💼 Candidate Management System
 
 A full-stack Candidate Management System built with React, Node.js, Express, and MongoDB.
 This application enables administrators to register candidates, automatically assign skill tiers based on selected skills, and manage candidate data efficiently.
@@ -116,3 +116,4 @@ POST	/api/candidates/register-candidate	Register a new candidate and calculate t
 🧭 Role-based access (Admin vs. Regular User)
 
 🔔 Real-time updates and notifications for new registrations
+
