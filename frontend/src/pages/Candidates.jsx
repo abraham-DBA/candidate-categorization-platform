@@ -16,7 +16,7 @@ const Candidates = () => {
   useEffect(() => {
     const fetchCandidates = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/candidates/get-candidates");
+        const res = await axios.get("https://candidate-categorization-platform-2.onrender.com/api/candidates/get-candidates");
         setCandidates(res.data);
       } catch (err) {
         console.error("Error fetching candidates:", err);

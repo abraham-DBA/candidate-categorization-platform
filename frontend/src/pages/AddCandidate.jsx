@@ -86,7 +86,7 @@ const AddCandidate = () => {
       };
 
       // API call
-      const response = await fetch('http://localhost:5000/api/candidates/register-candidate', {
+      const response = await fetch('https://candidate-categorization-platform-2.onrender.com/api/candidates/register-candidate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
