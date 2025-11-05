@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
 const AddCandidate = () => {
@@ -61,7 +62,7 @@ const AddCandidate = () => {
     try {
       // Simple validation
       if (!formData.name || !formData.email || !formData.phone) {
-        setMessage('Name, email, and phone are required.');
+        toast.error('Please fill in all required fields.');
         setLoading(false);
         return;
       }
@@ -72,7 +73,7 @@ const AddCandidate = () => {
         .flatMap(([key]) => skillMap[key] || []);
 
       if (selectedSkills.length === 0) {
-        setMessage('Please select at least one skill.');
+        toast.error('Please select at least one skill.');
         setLoading(false);
         return;
       }
@@ -95,7 +96,7 @@ const AddCandidate = () => {
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || 'Failed to register candidate');
 
-      setMessage(`Candidate registered successfully! Tier assigned: ${data.tier}`);
+      toast.success(`Candidate registered successfully! Tier assigned: ${data.tier}`);
 
       // Reset form
       setFormData({
@@ -108,7 +109,7 @@ const AddCandidate = () => {
       // Redirect after 2 seconds
       setTimeout(() => navigate('/candidates'), 2000);
     } catch (error) {
-      setMessage(error.message || 'Something went wrong.');
+      toast.error(error.message || 'Failed to register candidate');
     } finally {
       setLoading(false);
     }
